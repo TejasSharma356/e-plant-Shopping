@@ -31,7 +31,7 @@ const handleCheckoutShopping = (e) => {
   };
 
   const handleDecrement = (item) => {
-   if(item.quantity < 1){
+   if(item.quantity > 1){
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
    }
    else{
@@ -45,9 +45,10 @@ const handleCheckoutShopping = (e) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-    const cost = parseFloat(item.cost.substring(1)); // Remove $ and convert to number
-    Total = item.price * item.quantity;
-  };
+  const cost = parseFloat(item.cost.substring(1));
+  return (cost * item.quantity).toFixed(2); // ✅ Return properly
+};
+
 
   return (
     <div className="cart-container">
