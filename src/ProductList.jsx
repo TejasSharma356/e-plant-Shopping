@@ -307,7 +307,7 @@ function ProductList({ onHomeClick }) {
                         {calculateTotalQuantity() > 0 && (
                              <span style={{
                                 position: 'absolute',
-                                top: '50px',
+                                top: '40px',
                                 right: '40px',
                                 background: 'red',
                                 color: 'white',
